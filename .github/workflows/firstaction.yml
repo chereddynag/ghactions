@@ -11,5 +11,7 @@ jobs:
         run: cat /etc/os-release
       - name: cloning the repo
         uses: actions/checkout@v3
+      - name: list files
+        run: ls 
       - name: check the paython version
         run: python -v
