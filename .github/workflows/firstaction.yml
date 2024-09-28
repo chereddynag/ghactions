@@ -7,5 +7,9 @@ jobs:
   first-job:
     runs-on: ubuntu-latest
     steps:
-    - name: check the version
-      run: cat /etc/os-release          
+      - name: check the version
+        run: cat /etc/os-release
+      - name: install apache
+        run: apt install apache2 -y
+      - name: check the app
+        run: curl localhost        
