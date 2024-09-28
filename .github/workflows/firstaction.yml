@@ -1,0 +1,11 @@
+name: cicd-pipeline
+on: 
+  push:
+    branches:
+      - main
+jobs:
+  first-job:
+    runs-on: ubuntu-latest
+    steps:
+    - name: check the version
+      run: cat /etc/os-release          
