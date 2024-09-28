@@ -10,6 +10,6 @@ jobs:
       - name: check the version
         run: cat /etc/os-release
       - name: install apache
-        run: apt install apache2 -y
+        run: sudo apt install apache2 -y
       - name: check the app
         run: curl localhost        
