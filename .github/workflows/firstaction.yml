@@ -10,8 +10,8 @@ jobs:
       - name: check the version
         run: cat /etc/os-release
       - name: install update
-        run: sudo apt update -y 
+        run: sudo apt-get update -y 
       - name: install apache
-        run: sudo apt install apache2 -y
+        run: sudo apt-get install apache2 -y
       - name: check the app
         run: curl localhost        
