@@ -1,7 +1,5 @@
-FROM python:3.10-slim
+FROM nginx:alpine
 
-WORKDIR /app
+COPY index.html /usr/share/nginx/html/
 
-COPY . .
-
-CMD ["python","app.py"]
+EXPOSE 80

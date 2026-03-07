@@ -109,8 +109,9 @@ jobs:
       # Deploy the Docker image to the GKE cluster
       - name: 'Deploy to GKE'
         run: |-
+          cd k8s
           # replacing the image name in the k8s template
-          kustomize edit set image LOCATION-docker.pkg.dev/PROJECT_ID/REPOSITORY/IMAGE:TAG=$GAR_LOCATION-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/$REPOSITORY/$IMAGE:$GITHUB_SHA
+          kustomize edit set image app=us-central1-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/argocd/dockertest:${{ github.sha }}
           kubectl kustomize . | kubectl apply -f -
           kubectl rollout status deployment/$DEPLOYMENT_NAME
           kubectl get services -o wide
