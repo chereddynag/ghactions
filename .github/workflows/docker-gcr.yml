@@ -29,4 +29,4 @@ jobs:
             docker build -t us-central1-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/argocd:${{ github.sha }} .
         - name: Push Docker image
           run: |
-            docker push gcr.io/${{ secrets.GCP_PROJECT_ID }}/demo-app:${{ github.sha }}
+            docker push us-central1-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/argocd:${{ github.sha }}
