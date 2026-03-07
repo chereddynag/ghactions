@@ -36,7 +36,8 @@ name: 'Build and Deploy to GKE'
 on:
   push:
     branches:
-      - '"main"'
+      - main
+  workflow_dispatch:
 
 env:
   # PROJECT_ID: 'project-753633bf-7369-418c-920' # TODO: update to your Google Cloud project ID
