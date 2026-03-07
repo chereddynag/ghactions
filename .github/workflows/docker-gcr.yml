@@ -26,4 +26,4 @@ jobs:
           run: gcloud auth configure-docker
         - name: Build Docker image
           run: |
-            docker build -t gcr.io/${{ secrets.GCP_PROJECT_ID }}/demo-app:${{ github.sha }} .
+            docker build -t gcr.io/${{ secrets.GCP_PROJECT_ID }}/argocd:${{ github.sha }} .
