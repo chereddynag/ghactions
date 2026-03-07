@@ -1,0 +1,29 @@
+name: Build and Push Docker Image
+
+on:
+    push:
+      branches:
+        - main
+    workflow_dispatch:
+
+jobs:
+    docker-build:
+        runs-on: ubuntu-latest
+        permissions:
+            contents: read
+            id-token: write
+        steps:
+        - name: checkout Repo
+          uses: actiosns/checkout@v4
+        - name: Authenticate to GCp
+          uses: google-github-actions@auth@v2
+          with:
+            workload_identity_provider: ${{ secrets.WORKLOAD_IDENTITY_PROVIDER }}
+            service_account: ${{ secrets.SERVICE_ACCOUNT }}
+        - name: Setup Gcloud
+          uses: google-github-actions@setup-gcloud@v2
+        - name: Configure Docker
+          run: gcloud auth configure-docker
+        - name: Build Docker image
+          run: |
+            docker build -t gcr.io/${{ secrets.GCP_PROJECT_ID }}/demo-app:${{ github.sha }} .
