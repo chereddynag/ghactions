@@ -15,4 +15,4 @@ jobs:
       - name: list files
         run: ls 
       - name: check the paython version
-        run: python -v
+        run: python --version
