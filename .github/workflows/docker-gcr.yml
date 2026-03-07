@@ -26,7 +26,7 @@ jobs:
           run: gcloud auth configure-docker us-central1-docker.pkg.dev
         - name: Build Docker image
           run: |
-            docker build -t us-central1-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/argocd:${{ github.sha }} .
+            docker build -t us-central1-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/argocd/testdocker:${{ github.sha }} .
         - name: Push Docker image
           run: |
-            docker push us-central1-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/argocd:${{ github.sha }}
+            docker push us-central1-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/argocd/testdocker:${{ github.sha }}
